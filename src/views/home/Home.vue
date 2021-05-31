@@ -115,7 +115,7 @@ export default {
   // 当进入该页面时自动调用
   // 滚动到上次位置
   activated() {
-    this.$refs.scrolls.back(0, this.saveY, 10)
+    this.$refs.scrolls.back(0, this.saveY, 100)
 
   },
   // 离开该页面时调用
