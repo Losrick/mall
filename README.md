@@ -258,6 +258,22 @@ Home页离开时记录状态和位置
 5. 在deactivate(){}中获取Scroll.vue中的getScrollY(){}方法中的滚动距离，并赋值给scrollY
 6. 在activated(){}中调用Scroll.vue中的返回顶部方法，但是将Y值改为-scrollY（因为页面往上滚）
 
+分类页
+1. 在views文件夹下创建category文件夹，在其中创建Category.vue文件
+2. 在network文件夹中创建category.js文件
+   1. 在category.js中请求商品信息 getCategorys() 
+3. 在Category.vue中将请求的数据存储到data中的categorys: []里
+4. 在category文件夹中创建childComps文件夹，存储子组件
+5. 在childComps文件夹中创建TabMenu.vue，展示左侧tab栏
+6. 在Category.vue导入TabMenu.vue，并将商品信息通过标签 <tab-menu>传递过去
+   1. 在TabMenu.vue中根据信息创建html标签
+   2. 在每个商品类标签上添加点击事件 
+      1. 让被点击的标签样式发生改变
+      2. 将点击事件传递给Category.vue，参数为当前点击的标签的index
+7. 在Category.vue中接受点击事件selectItems()，根据点击的index，查找该商品类的详细分类信息标识符maitKey
+   1. 在category.js中根据maitKey查找对应的详细分类数据，并存储到data中的 detailCategorys: []中
+8. 在childComps文件夹中创建CategoryDetail.vue，并通过标签 <category-detail>接收详细的分类信息
+9. 根据传递过来的数据detailCategory，展示数据
 详情页
 1. 在views文件夹下创建detail文件夹，在其中创建Detail.vue文件
    1. 将页面背景改为白色，添加position，修改z-index，使页面将底部NavBar盖住（z-index想要生效必须有定位）

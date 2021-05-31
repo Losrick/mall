@@ -41,12 +41,14 @@ export default {
   },
 
   methods: {
+    // 获取商品数据
     getCategory() {
       getCategorys().then((res) => {
         // console.log(res);
         this.categorys = res.data.category.list
       })
     },
+    // 获取指定的商品详细数据
     selectItems(index) {
       const detailKey = this.categorys[index].maitKey
       getDetailCategory(detailKey).then((res) => {
@@ -54,6 +56,7 @@ export default {
         this.detailCategorys = res.data.list
       })
     },
+    // 获取默认的商品详细数据
     selectItems1(index) {
       getDetailCategory(index).then((res) => {
         this.detailCategorys = res.data.list
