@@ -147,7 +147,7 @@ export default {
       }
     },
     addCarts() {
-      // 将所有需要添加的信息放在对象中
+      // 从data中提取所有购物车所需要的信息放在对象中
       const product = {}
       product.id = this.iid
       product.image = this.topImg[0]
@@ -158,6 +158,7 @@ export default {
       this.$store.dispatch(ADDCART, product).then((res) => {
         this.$toast.show(res, 700)
       })
+      // 每次点击都让商品总数 + 1
       this.$store.commit(ALLCOUNT)
     }
 
