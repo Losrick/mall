@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { debounce, throttle } from '@common/utils'
 // 导入导航栏
 import NavBar from '@components/common/navbar/NavBar'
 // 导入tabControl页面
@@ -152,6 +153,17 @@ export default {
       // 让2个tabControl组件的激活的类别保持一致
       this.$refs.tabControl1.currentIndex = index;
       this.$refs.tabControl2.currentIndex = index;
+    },
+    // 防抖函数的调用
+    // titleClick: debounce(function () {
+    //   this.print()
+    // }, 500),
+    // 节流函数的调用
+    // titleClick: throttle(function () {
+    //   this.print()
+    // }, 2000, { leading: true, trailing: false }),
+    print() {
+      console.log("点击");
     },
     // 监听组件点击事件，调用<scroll>组件中的回到顶部方法
     backClick() {
